@@ -11,6 +11,7 @@ global first_call
 flag = 1
 first_call = 1 
 relay=2 #relay pin
+my_number="06xxxxxxxx"
 
 # to minimize power consumption (in my pudding a9 power reduced from 50mA to 30mA -measured with cheap usb meter)
 machine.set_idle(1)
@@ -37,7 +38,7 @@ def call_handler(evt):
     global first_call
     print(evt)
     if type(evt) is not bool:   
-        if evt == "0697635555":
+        if evt == my_number:
             print("call from me !")
             if first_call:
                 print("relay will turned_on")
